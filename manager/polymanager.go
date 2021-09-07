@@ -150,7 +150,7 @@ func (this *PolyManager) init() bool {
 		log.Infof("PolyManager init - synced height from ECCM: %d", this.syncedHeight)
 		return true
 	}
-	log.Infof("PolyManager init - synced height from DB: %d", this.syncedHeight)
+	log.Infof("PolyManagerV2 init - synced height from DB: %d", this.syncedHeight)
 
 	return true
 }
