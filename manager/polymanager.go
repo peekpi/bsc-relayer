@@ -525,7 +525,11 @@ func (this *EthSender) commitHeader(header *polytypes.Header, pubkList []byte) b
 		return true
 	}
 
-	gasLimit = 1000000
+	gasLimit = gasLimit * 13 / 10
+
+	if gasLimit < 1000000 {
+		gasLimit = 1000000
+	}
 
 	nonce := this.nonceManager.GetAddressNonce(this.acc.Address)
 	tx := types.NewTransaction(nonce, contractaddr, big.NewInt(0), gasLimit, gasPrice, txData)
