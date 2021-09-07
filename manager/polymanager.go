@@ -464,6 +464,12 @@ func (this *EthSender) commitDepositEventsWithHeader(header *polytypes.Header, p
 		return false
 	}
 
+	gasLimit = gasLimit * 13 / 10
+
+	if gasLimit < 1000000 {
+		gasLimit = 1000000
+	}
+
 	k := this.getRouter()
 	c, ok := this.cmap[k]
 	if !ok {
